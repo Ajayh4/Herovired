@@ -1,0 +1,46 @@
+﻿1) Create a database name - “Football”.
+ create database Football;
+
+2) Create a table name - “Football Venue” 
+create table Football_Venue(
+	venue_id number(10),
+	venue_name varchar2(30),
+	city_id number(5),
+	capacity number(10));
+
+3) Data Insertion:
+
+insert into Football_Venue values(20001,'Korea',10003,200000);
+insert into Football_Venue values(20002,'Italy',10004,300000);
+insert into Football_Venue values(20003,'Brazil',10005,100000);
+insert into Football_Venue values(20004,'Australia',10006,30000);
+insert into Football_Venue values(20005,'France',10007,400000);
+insert into Football_Venue values(20006,'Canada',10008,700000);
+insert into Football_Venue values(20007,'Mexico',10009,80000);
+insert into Football_Venue values(20008,'Corotia',10002,80000);
+insert into Football_Venue values(20009,'Dubai',10000,50000);
+insert into Football_Venue values(20010,'Belgium',10001,80000);
+
+Output:
+  VENUE_ID VENUE_NAME                        CITY_ID   CAPACITY
+---------- ------------------------------ ---------- ----------
+     20001 Korea			       10003	 200000
+     20002 Italy			       10004	 300000
+     20003 Brazil			       10005     100000
+     20004 Australia			       10006	  30000
+     20005 France 			       10007     400000
+     20006 Canada      			       10008     700000
+     20007 Mexico 			       10009      80000
+     20008 Corotia 			       10002	  80000
+     20009 Dubai                               10000      50000
+     2001  Belgium                             10001      80000
+
+4) Count the number of venues of the football world cup
+query: select COUNT(venue_id) from Football_Venue;
+
+5) List all the venue names and capacities in the format of “Location” and “Volume”	
+query: select venue_name as Location, capacity as Volume from Football_Venue;
+
+6) Delete all the details where venue_name is equal to “Australia”.
+query:  delete from Football_venue
+ 	where venue_name='Australia';
