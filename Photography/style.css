@@ -1,0 +1,101 @@
+body
+{
+	margin: 0px;
+}
+.header
+{
+	height: 100px;
+	width: 100%;
+	background-color: black;
+	position: fixed;
+	margin-top: -18px;
+}
+.log
+{
+	width: 50%;
+	height: 100%;
+	float: left;
+	display: flex;
+	justify-content: start;	
+	align-items: center	;
+}
+.hm
+{
+	width: 12%;
+	height: 100%;
+	float: left;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.btn
+{
+	height: 50px;
+	width: 100px;
+	border: none;
+	color: white;
+	background-color: black;
+	padding: 0px 20px 0px 20px;
+	font-size: 20px;
+	padding-top: 20px;
+	text-decoration: none;
+}
+.btn:hover
+{
+	text-decoration: underline;
+	padding-bottom: 10px;
+	cursor: pointer;
+}
+h2
+{
+	font-family: Times new roman;
+	margin-left: 25px;
+}
+.bod
+{
+	height: 200px;
+	width: 100%;
+	display: flex;
+	justify-content: start;
+}
+.ims{
+	height: 100%;
+	margin-left: 2%;
+	width: 30%;
+}
+.das{
+	height: 100%;
+	width: 70%;
+}
+.das-por
+{
+	padding: 20px 50px 0px 0px;
+	overflow: hidden;
+}
+.ims-por
+{
+	height: 200px;
+	width: 200px;
+}
+.row
+{
+	height: 180px;
+	width: 100%;
+}
+.col
+{
+	width: 20%;
+	float: left;
+	padding-left: 50px;
+}
+.rimg
+{
+	height: 200px;
+	width: 100%;
+	transition: transform .3s;
+}
+.rimg:hover
+{
+	transform: scale(1.1);
+}
