@@ -1,0 +1,432 @@
+Question 1: Java 1D Array
+
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+	   
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        int a[]=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            a[i]=scan.nextInt();
+        }
+        scan.close();
+
+        // Prints each sequential element in array a
+        for (int i = 0; i < a.length; i++) {
+            System.out.println(a[i]);
+        }
+    }
+}
+
+
+Question 2: Java 2D Array
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+        List<List<Integer>> arr = new ArrayList<>();
+
+        for (int i = 0; i < 6; i++) {
+            String[] arrRowTempItems = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
+
+            List<Integer> arrRowItems = new ArrayList<>();
+
+            for (int j = 0; j < 6; j++) {
+                int arrItem = Integer.parseInt(arrRowTempItems[j]);
+                arrRowItems.add(arrItem);
+            }
+
+            arr.add(arrRowItems);
+        }
+
+        bufferedReader.close();
+        int m=Integer.MIN_VALUE;
+        for(int i=1;i<5;i++)
+        {
+            for(int j=1;j<5;j++)
+            {
+                m=Math.max(m,arr.get(i).get(j)+arr.get(i-1).get(j)+arr.get(i+1).get(j)+arr.get(i-1).get(j-1)+arr.get(i-1).get(j+1)+arr.get(i+1).get(j-1)+arr.get(i+1).get(j+1));
+            }
+        }
+        System.out.println(m);
+    }
+}
+
+
+Question 3: Java Subarray
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner inp=new Scanner(System.in);
+        int n=inp.nextInt();
+        int a[]=new int[n];
+        for(int i=0;i<n;i++)
+        a[i]=inp.nextInt();
+        int f=0;
+        for(int i=0;i<n;i++)
+        {
+            int c=0;
+            for(int j=i;j<n;j++)
+            {
+                c+=a[j];
+                if(c<0)
+                f+=1;
+            }
+        }
+        System.out.println(f);
+    }
+}
+
+
+Question 4: Java Arraylist
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner inp=new Scanner(System.in);
+        int t=inp.nextInt();
+        ArrayList<ArrayList<Integer>> l=new ArrayList<>();
+        while(t-->0)
+        {
+            int n=inp.nextInt();
+            ArrayList<Integer> a=new ArrayList<>();
+            for(int i=0;i<n;i++)
+            a.add(inp.nextInt());
+            l.add(a);
+        }
+        int q=inp.nextInt();
+        for(int j=0;j<q;j++)
+        {
+            int x=inp.nextInt()-1;
+            int y=inp.nextInt()-1;
+            if(x<l.size())
+            {
+                if(y<l.get(x).size())
+                System.out.println(l.get(x).get(y));
+                else
+                System.out.println("ERROR!");
+            }
+            else
+            System.out.println("ERROR!");
+        }
+    }
+}
+
+
+Question 5: Java 1D Array (Part 2)
+
+
+
+
+
+Question 6: Java List
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner inp=new Scanner(System.in);
+        int n=inp.nextInt();
+        ArrayList<Integer> a=new ArrayList<>();
+        for(int i=0;i<n;i++)
+        a.add(inp.nextInt());
+        int q=inp.nextInt();
+        for(int i=0;i<q;i++)
+        {
+            String s=inp.next();
+            if(s.compareTo("Insert")==0)
+            {
+                int x=inp.nextInt();
+                int y=inp.nextInt();
+                a.add(x,y);
+            }
+            else
+            {
+                int x=inp.nextInt();
+                a.remove(x);
+            }
+        }
+        for(int i: a)
+        System.out.print(i+" ");
+        System.out.println();
+    }
+}
+
+
+
+Question 7: Java Stack
+
+import java.util.*;
+class Solution{
+	
+	public static void main(String []argh)
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		while (sc.hasNext()) {
+			String s=sc.next();
+            int f=1;
+            Stack<Character> st=new Stack<>();
+            for(int i=0;i<s.length();i++)
+            {
+                if("{[(".contains(s.charAt(i)+""))
+                st.push(s.charAt(i));
+                else
+                {
+                    if(st.isEmpty())
+                    {
+                        f=0;
+                        System.out.println(false);
+                        break;
+                    }
+                    else
+                    {
+                        char d=st.peek();
+                        if(s.charAt(i)=='}'  && d=='{')
+                        st.pop();
+                        else if(s.charAt(i)==')'  && d=='(')
+                        st.pop();
+                        else if(s.charAt(i)==']'  && d=='[')
+                        st.pop();
+                        else{
+                            f=0;
+                            System.out.println(false);
+                            break;
+                        }
+                    }
+                }
+            }
+            if(f==1 && st.isEmpty())
+            System.out.println(true);
+            else if(f==1)
+            System.out.println(false);
+        }
+	}
+}
+
+
+
+Question 8: Java Hashset
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+ public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int t = s.nextInt();
+        String [] pair_left = new String[t];
+        String [] pair_right = new String[t];
+        
+        for (int i = 0; i < t; i++) {
+            pair_left[i] = s.next();
+            pair_right[i] = s.next();
+        }
+
+//Write your code here
+    
+    HashSet<HashMap<String,String>> hs=new HashSet<>();
+    for(int i=0;i<t;i++)
+    {
+        HashMap<String,String> hm=new HashMap<>();
+        hm.put(pair_left[i],pair_right[i]);
+        hs.add(hm);
+        System.out.println(hs.size());
+    }
+    }
+}
+
+
+Question 9: Java Comparator
+Question 10: Java Generics
+Question 11: Java Sort
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner inp=new Scanner(System.in);
+        int n=inp.nextInt();
+        TreeMap<Double,ArrayList<String>> tm=new TreeMap<>();
+        for(int i=0;i<n;i++)
+        {
+            int id=inp.nextInt();
+            String s=inp.next();
+            double sc=inp.nextDouble();
+            if(tm.containsKey(sc))
+            tm.get(sc).add(s);
+            else
+            {
+                ArrayList<String> a=new ArrayList<>();
+                a.add(s);
+                tm.put(sc,a);
+            }
+        }
+        for(double i: tm.descendingKeySet())
+        {
+            ArrayList<String> a=tm.get(i);
+            Collections.sort(a);
+            tm.put(i,a);
+            for(String j: tm.get(i))
+            System.out.println(j);
+        }
+    }
+}
+
+
+
+Question 12: Java Dequeue
+
+    import java.util.*;
+    public class test {
+        public static void main(String[] args) {
+            Scanner in = new Scanner(System.in);
+            ArrayList<Integer> a=new ArrayList<>();
+            HashMap<Integer,Integer> hm=new HashMap<>();
+            int n = in.nextInt();
+            int m = in.nextInt();
+            int r=0;
+            for (int i = 0; i < n; i++) {
+                int num = in.nextInt();
+                a.add(num);
+            }
+            for(int i=0;i<m;i++)
+            {
+                if(hm.containsKey(a.get(i)))
+                hm.put(a.get(i),hm.get(a.get(i))+1);
+                else
+                hm.put(a.get(i),1);
+            }
+            r=Math.max(r,hm.size());
+            int j=0;
+            for(int i=m;i<n;i++)
+            {
+                if(hm.containsKey(a.get(i)))
+                hm.put(a.get(i),hm.get(a.get(i))+1);
+                else
+                hm.put(a.get(i),1);
+                if(hm.containsKey(a.get(j)))
+                {
+                    if(hm.get(a.get(j))==1)
+                    hm.remove(a.get(j));
+                    else
+                    hm.put(a.get(j),hm.get(a.get(j))-1);
+                }
+                r=Math.max(r,hm.size());
+                j+=1;
+            }
+            System.out.println(r);
+        }
+    }
+
+
+
+Question 13: Java BitSet
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+    int N = scan.nextInt();
+    int M = scan.nextInt();
+    String[] opr = new String[M];
+    int[] s1 = new int[M];
+    int[] s2 = new int[M];
+    for(int i=0; i<M; i++){
+        opr[i] = scan.next();
+        s1[i] = scan.nextInt();
+        s2[i] = scan.nextInt();
+    }
+    BitSet B1 = new BitSet(N);
+    BitSet B2 = new BitSet(N);
+   for(int i=0; i<M; i++){
+        switch(opr[i]){
+            case "AND":
+            if(s1[i] == 1)
+                B1.and(B2);
+            else
+                B2.and(B1);
+            break;
+
+            case "OR":
+            if(s1[i] == 1)
+                B1.or(B2);
+            else
+                B2.or(B1);
+            break;
+
+            case "XOR":
+            if(s1[i] == 1)
+                B1.xor(B2);
+            else
+                B2.xor(B1);
+            break;
+
+            case "FLIP":
+            if(s1[i] == 1)
+                B1.flip(s2[i]);
+            else
+                B2.flip(s2[i]);
+            break;
+
+            case "SET":
+            if(s1[i] == 1)
+                B1.set(s2[i], true);
+            else
+                B2.set(s2[i], true);
+            break;
+        }
+   System.out.println(B1.cardinality() + " " + B2.cardinality());
+    }
+    }
+}
+
+
+Question 14: Java Priority Queue
+
+
+
+
